@@ -8,7 +8,6 @@ from utils.SpriteSheet import SpriteSheet
 
 
 pygame.init()
-
 size = (GameConstants.WIN_WIDTH, GameConstants.WIN_HEIGHT)
 screen = pygame.display.set_mode(size=size)
 pygame.display.set_caption(GameConstants.WIN_CAPTION)
