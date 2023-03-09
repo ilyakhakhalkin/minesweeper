@@ -1,4 +1,5 @@
 import pygame
+from pygame.math import Vector2
 
 from game_constants import *
 from minesweeper import screen
@@ -10,6 +11,8 @@ class BasicCell:
         self.y = y
         self._active = False
         self.state = GameConstants.CELL_OK
+        
+        self.pos = Vector2(x, y)
 
     @property
     def active(self):

@@ -39,3 +39,18 @@ class SpriteSheet:
                 for x in range(image_count)]
 
         return self.images_at(tups, colorkey)
+
+
+class Stack:
+    def __init__(self) -> None:
+        self.elements = []
+
+    def pop(self):
+        if not self.empty():
+            return self.elements.pop()
+
+    def push(self, elem) -> None:
+        self.elements.append(elem)
+
+    def is_empty(self) -> bool:
+        return len(self.elements) == 0
