@@ -69,7 +69,7 @@ Methods:
 
 ### Backlog
 Todo:
-- fix bug with reveal_neighbours
+- fix some bugs
 - redesign architecture
 - optimize init_bombs
 - optimize reveal_neighbours
