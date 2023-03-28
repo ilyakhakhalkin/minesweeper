@@ -1,16 +1,19 @@
 import random
 
-from .cells import Cell
+from .cell import Cell
 
 
 class Field:
-
+    """
+    Stores game field - 2D array of cells.
+    """
     def __init__(self, num_rows: int, num_cols: int) -> None:
         self.num_rows = num_rows
         self.num_cols = num_cols
         self.init_empty()
 
     def init_empty(self):
+        """Populates array with non-bomb cells only."""
         self.cells = [
             [
                 Cell(r=r, c=c) for c in range(self.num_cols)
@@ -19,6 +22,7 @@ class Field:
         ]
 
     def init_bombs(self, num_bombs, avoid_r, avoid_c):
+        """Turns random cells into bombs."""
         placed = 0
 
         while placed < num_bombs:
@@ -31,6 +35,7 @@ class Field:
                     placed += 1
 
     def init_cells(self):
+        """Calculates neighbouring mines count for non-bomb cells."""
         for r in range(self.num_rows):
             bomb_counter = 0
 

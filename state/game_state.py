@@ -4,7 +4,9 @@ from .field import Field
 
 
 class GameState:
-
+    """
+    Game state and logic here.
+    """
     def __init__(self) -> None:
         self.num_bombs = GameConstants.BOMB_COUNT
         self.num_flags_left = GameConstants.BOMB_COUNT
@@ -21,6 +23,11 @@ class GameState:
         self.status_face = StatusFace(308, 5)
 
     def reveal(self, r, c, skip=False):
+        """
+        Change cell state to revealed.
+        r: row
+        c: column
+        """
         cell = self.field.cells[r][c]
 
         if not cell.is_accessible_for('reveal'):
@@ -41,6 +48,11 @@ class GameState:
             self.reveal_neighbours(r=r, c=c)
 
     def reveal_neighbours(self, r, c):
+        """
+        Autoreveal non-bomb neighbours if empty cell was revealed.
+        r: row
+        c: column
+        """
         for row in range(r - 1, r + 2):
             if row < 0 or row >= self.field.num_rows:
                 continue
@@ -64,6 +76,11 @@ class GameState:
                     self.reveal_neighbours(r=row, c=col)
 
     def push(self, r, c):
+        """
+        Change cell state to pushed.
+        r: row
+        c: column
+        """
         cell = self.field.cells[r][c]
 
         self.clear_push()
@@ -76,12 +93,22 @@ class GameState:
         self.status_face.status = 'CAUTION'
 
     def clear_push(self):
+        """
+        Unpush previous cells.
+        r: row
+        c: column
+        """
         self.status_face.status = 'OK'
         while self.pushed:
             row, col = self.pushed.pop()
             self.field.cells[row][col].is_pushed = False
 
     def mark(self, r, c):
+        """
+        Mark cell with flag/unkn/unflag.
+        r: row
+        c: column
+        """
         cell = self.field.cells[r][c]
 
         if not cell.is_accessible_for('mark'):
@@ -114,16 +141,19 @@ class GameState:
                 self.game_win()
 
     def game_over(self):
+        """Change game state and trigger revealing of all cells."""
         self.is_game_over = True
         self.status_face.status = 'GAME_OVER'
         self.reveal_all()
 
     def game_win(self):
+        """Change game state and trigger revealing of all cells."""
         self.is_game_won = True
         self.status_face.status = 'WIN'
         self.reveal_all()
 
     def reveal_all(self):
+        """Change state of all cells to revealed."""
         for row in self.field.cells:
             for cell in row:
                 cell.is_revealed = True

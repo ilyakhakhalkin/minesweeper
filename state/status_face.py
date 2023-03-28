@@ -1,5 +1,3 @@
-
-
 class StatusFace:
     def __init__(self, left, top) -> None:
         self.left = left

@@ -4,7 +4,6 @@ from utils.SpriteSheet import SpriteSheet
 from state.game_state import GameState
 from game_constants import GameConstants
 
-
 pygame.init()
 
 
@@ -59,6 +58,9 @@ class GUI:
 
 
 class UserInterface:
+    """
+    Main class.
+    """
     def __init__(self) -> None:
         pygame.init()
 
