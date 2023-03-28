@@ -236,8 +236,10 @@ class UserInterface:
                     image,
                     (
                         cell.row * GameConstants.CELL_WIDTH,
-                        cell.col * (GameConstants.CELL_HEIGHT
-                                    + GameConstants.STATUS_BAR_HEIGHT)
+                        (
+                            cell.col * GameConstants.CELL_HEIGHT
+                            + GameConstants.STATUS_BAR_HEIGHT
+                        )
                     ),
                 )
 
