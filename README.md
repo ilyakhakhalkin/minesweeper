@@ -28,7 +28,7 @@ or
 4. Install pygame to your venv:
 `pip install pygame`
 or
-`pip3 unstall pygame`
+`pip3 install pygame`
 
 5. Run minesweeper.py:
 `python minesweeper.py`
