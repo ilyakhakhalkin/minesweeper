@@ -15,10 +15,13 @@ or
 `python3 -m venv venv`
 
 3. Activate venv:
+
 macos:
 `. venv/bin/activate`
+
 win:
-`venv/Scripts/activate`
+`source venv/Scripts/activate`
+
 see also:
 `https://docs.python.org/3/library/venv.html`
 
