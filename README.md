@@ -16,13 +16,13 @@ or
 
 3. Activate venv:
 
-macos:
+- macos:
 `. venv/bin/activate`
 
-win:
+- win:
 `source venv/Scripts/activate`
 
-see also:
+- see also:
 `https://docs.python.org/3/library/venv.html`
 
 4. Install pygame to your venv:
